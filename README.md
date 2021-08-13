@@ -61,6 +61,7 @@ use `deno doc` to view the API.
 ### encode/decode
 
 The encode/decode combo can be used for all kinds of transformations including encrypt/decrypt. 
+Make sure that decode is the inverse of encode.
 
 ## Log format
 
@@ -91,4 +92,6 @@ Compaction using `compact()` will reduce the volume by processing all updates an
 ### Notes
 
 - `JSON.stringify` and `JSON.parse` are used in writing and reading data, so you can only persist data that can be handled by `JSON.stringify`! If you wish to alter this behaviour you can either prepare your data before `set` or `add` or overload `JSON.stringify` and `JSON.parse`.
+
+- Each database should be connected to a single process. Multiple concurrent readers/writers is *not* supported !
 
