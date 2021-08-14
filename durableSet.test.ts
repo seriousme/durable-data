@@ -1,6 +1,6 @@
 import { defaultSeparator } from "./durableBase.ts";
 import { DurableSet } from "./durableSet.ts";
-import { assertEquals } from "https://deno.land/std@0.103.0/testing/asserts.ts";
+import { assertEquals } from "./dev_deps.ts";
 
 const testFilename = "./dbdir/testSet.db";
 
