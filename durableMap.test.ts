@@ -69,3 +69,17 @@ Deno.test("clear works", async () => {
   assertEquals(dm2.get("e"), sepTest);
   await dm.destroy();
 });
+
+Deno.test("Example in Readme works", async () => {
+  const dm = new DurableMap("./dbdir/dataMap.db", {
+    // all options have defaults
+    mode: 0o660, // 0o600 (rw- --- ---), file mode to be used
+    separator: "\r\n", // "\n", separator between records
+    decode: (line: string) => atob(line), // (line)=>line ,line decoder
+    encode: (line: string) => btoa(line), // (line)=>line ,line encoder
+  });
+  await dm.load(); // load previously stored data
+  dm.set("a", "value of a");
+  await dm.compact(); // compact record log on disk
+  await dm.destroy(); // destroy data stored on disk, not in memory !
+});

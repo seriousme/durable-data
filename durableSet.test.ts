@@ -43,3 +43,17 @@ Deno.test("Compact works", async () => {
   assertEquals(ds2.has(sepTest), true);
   await ds.destroy();
 });
+
+Deno.test("Example in Readme works", async () => {
+  const ds = new DurableSet("./dbdir/dataSet.db", {
+    // all options have defaults
+    mode: 0o660, // 0o600 (rw- --- ---), file mode to be used
+    separator: "\r\n", // "\n", separator between records
+    decode: (line: string) => atob(line), // (line)=>line ,line decoder
+    encode: (line: string) => btoa(line), // (line)=>line ,line encoder
+  });
+  await ds.load(); // load previously stored data
+  ds.add("value of a");
+  await ds.compact(); // compact record log on disk
+  await ds.destroy(); // destroy data stored on disk, not in memory !
+});
