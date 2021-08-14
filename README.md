@@ -1,3 +1,8 @@
+
+[![Deno CI](https://github.com/seriousme/durable-data/actions/workflows/deno-ci.yml/badge.svg)](https://github.com/seriousme/durable-data/actions/workflows/deno-ci.yml)
+[![CodeQL](https://github.com/seriousme/durable-data/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/seriousme/durable-data/actions/workflows/codeql-analysis.yml)
+
+
 # durable_data
 
 The durable_data module is made to provide durability to data structures across
