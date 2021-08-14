@@ -16,7 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Use Deno ${{ matrix.node-version }}
-      uses: actions/setup-deno@v1
+      uses: denoland/setup-deno@v1
       with:
         deno-version: ${{ matrix.deno }}
     - run: ./test.sh
