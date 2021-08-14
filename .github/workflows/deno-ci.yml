@@ -12,6 +12,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: Use Deno ${{ matrix.deno-version }}
       uses: denoland/setup-deno@v1
-      with:
-        deno-version: ${{ matrix.deno }}
     - run: ./test.sh
