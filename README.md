@@ -1,6 +1,6 @@
-# durable-data
+# durable_data
 
-durable-data module is made to provide durability to data structures across
+The durable_data module is made to provide durability to data structures across
 restarts of code.
 
 ## Usage
@@ -16,7 +16,7 @@ A DurableMap is a TypeScript Map with durability added. All normal Map operation
 ```ts
 import {
   DurableMap
-} from "https://deno.land/x/durable-data/mod.ts";
+} from "https://deno.land/x/durable_data/mod.ts";
 
 const dm = new DurableMap('dataMap.db',{
     // all options have defaults
@@ -38,7 +38,7 @@ A DurableSet is a TypeScript Set with durability added. All normal Set operation
 ```ts
 import {
   DurableSet
-} from "https://deno.land/x/durable-data/mod.ts";
+} from "https://deno.land/x/durable_data/mod.ts";
 
 const ds = new DurableSet('dataSet.db', {
     // all options have defaults

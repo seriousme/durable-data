@@ -1,5 +1,5 @@
 {
   "imports": {
-    "https://deno.land/x/durable-data/mod.ts": "./mod.ts"
+    "https://deno.land/x/durable_data/mod.ts": "./mod.ts"
   }
 }
