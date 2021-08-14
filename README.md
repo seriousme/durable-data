@@ -12,7 +12,7 @@ restarts of code.
 
 The following modules are exposed in `mod.ts`. This module persists data to the
 filesystem so Deno should be run with
-`deno run <script> --allow-read=<database directory> --allow-write <database directory>`
+`deno run <script> --allow-read=<database directory> --allow-write=<database directory>`
 
 ### DurableMap
 
@@ -23,7 +23,7 @@ import {
   DurableMap
 } from "https://deno.land/x/durable_data/mod.ts";
 
-const dm = new DurableMap('dataMap.db',{
+const dm = new DurableMap('./dbdir/dataMap.db',{
     // all options have defaults
     mode: 0o660, // 0o600 (rw- --- ---), file mode to be used
     separator: "\r\n", // "\n", separator between records
@@ -45,7 +45,7 @@ import {
   DurableSet
 } from "https://deno.land/x/durable_data/mod.ts";
 
-const ds = new DurableSet('dataSet.db', {
+const ds = new DurableSet('./dbdir/dataSet.db', {
     // all options have defaults
     mode: 0o660, // 0o600 (rw- --- ---), file mode to be used
     separator: "\r\n", // "\n", separator between records

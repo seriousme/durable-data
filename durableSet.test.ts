@@ -2,7 +2,7 @@ import { defaultSeparator } from "./durableBase.ts";
 import { DurableSet } from "./durableSet.ts";
 import { assertEquals } from "https://deno.land/std@0.103.0/testing/asserts.ts";
 
-const testFilename = "testSet.db";
+const testFilename = "./dbdir/testSet.db";
 
 Deno.test("Set function works", async () => {
   const ds = new DurableSet(testFilename);

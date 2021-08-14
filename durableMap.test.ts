@@ -2,7 +2,7 @@ import { defaultSeparator } from "./durableBase.ts";
 import { DurableMap } from "./durableMap.ts";
 import { assertEquals } from "https://deno.land/std@0.103.0/testing/asserts.ts";
 
-const testFilename = "testMap.db";
+const testFilename = "./dbdir/testMap.db";
 
 Deno.test("Map function works", async () => {
   const dm = new DurableMap(testFilename);

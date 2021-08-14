@@ -1,1 +1,1 @@
-deno test --doc --import-map doc.importmap.json --allow-read  --allow-write . 
+deno test --doc --import-map doc.importmap.json --allow-read=dbdir --allow-write=dbdir
