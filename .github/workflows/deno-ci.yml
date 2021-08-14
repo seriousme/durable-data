@@ -15,7 +15,7 @@ jobs:
         deno-version: [vx.x.x, canary]
     steps:
     - uses: actions/checkout@v2
-    - name: Use Deno ${{ matrix.node-version }}
+    - name: Use Deno ${{ matrix.deno-version }}
       uses: denoland/setup-deno@v1.1.0
       with:
         deno-version: ${{ matrix.deno }}
