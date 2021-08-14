@@ -1,6 +1,5 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
+# This workflow will test on Deno lastest stable major and canary
+# see https://github.com/marketplace/actions/setup-deno for details
 name: Deno CI
 
 on: [push, pull_request]
