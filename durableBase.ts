@@ -77,5 +77,7 @@ export async function compact(
       writeData(tmpFile, mode, encode, separator, { cmd, key, value });
     }
   }
-  Deno.renameSync(tmpFile, filename);
+  if (object.size) {
+    Deno.renameSync(tmpFile, filename);
+  }
 }
