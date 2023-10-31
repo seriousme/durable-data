@@ -44,6 +44,15 @@ Deno.test("Compact works", async () => {
   await ds.destroy();
 });
 
+Deno.test("Compact and destroy with empty set works", async () => {
+  const ds = new DurableSet(testFilename);
+  await ds.compact();
+  const ds2 = new DurableSet(testFilename);
+  await ds2.load();
+  assertEquals(ds2.size, 0);
+  await ds.destroy();
+});
+
 Deno.test("Example in Readme works", async () => {
   const ds = new DurableSet("./dbdir/dataSet.db", {
     // all options have defaults
