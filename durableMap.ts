@@ -4,6 +4,7 @@ import {
   defaultEncoder,
   defaultMode,
   defaultSeparator,
+  deleteFileIfExists,
   readLog,
   writeData,
 } from "./durableBase.ts";
@@ -100,6 +101,6 @@ export class DurableMap extends Map {
   }
 
   async destroy(): Promise<void> {
-    await Deno.remove(this.filename);
+    await deleteFileIfExists(this.filename);
   }
 }
