@@ -33,6 +33,15 @@ Deno.test("Compact works", async () => {
   await dm.destroy();
 });
 
+Deno.test("Compact and destory with empty map works", async () => {
+  const dm = new DurableMap(testFilename);
+  await dm.compact();
+  const dm2 = new DurableMap(testFilename);
+  await dm2.load();
+  assertEquals(dm2.size, 0);
+  await dm.destroy();
+});
+
 Deno.test("Delete works", async () => {
   const dm = new DurableMap(testFilename);
   dm.set("a", "a");

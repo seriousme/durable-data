@@ -51,6 +51,16 @@ export function writeData(
   Deno.writeTextFileSync(filename, encoded, opts);
 }
 
+export async function deleteFileIfExists(filename: string): Promise<void> {
+  try {
+    await Deno.remove(filename);
+  } catch (err) {
+    if (!(err instanceof Deno.errors.NotFound)) {
+      throw err;
+    }
+  }
+}
+
 export async function compact(
   filename: string,
   mode: number,
@@ -60,13 +70,7 @@ export async function compact(
   object: Durable,
 ): Promise<void> {
   const tmpFile = `${filename}~`;
-  try {
-    await Deno.remove(tmpFile);
-  } catch (err) {
-    if (!(err instanceof Deno.errors.NotFound)) {
-      throw err;
-    }
-  }
+  await deleteFileIfExists(tmpFile);
 
   if (object instanceof Set) {
     for (const key of object.keys()) {
@@ -77,5 +81,7 @@ export async function compact(
       writeData(tmpFile, mode, encode, separator, { cmd, key, value });
     }
   }
-  Deno.renameSync(tmpFile, filename);
+  if (object.size) {
+    Deno.renameSync(tmpFile, filename);
+  }
 }
